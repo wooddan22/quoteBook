@@ -1,0 +1,29 @@
+<html ng-app="quoteBook">
+    <head>
+
+    </head>
+    <body ng-controller="mainCtrl">
+      <link rel="stylesheet" href="./styles.css">
+      <script src='http://code.jquery.com/jquery-1.10.2.js' type='text/javascript'></script>
+      <script src='http://code.angularjs.org/1.4.0/angular.js' type='text/javascript'></script>
+      <script src='./app.js' type='text/javascript'></script>
+      <script src='./mainCtrl.js' type='text/javascript'></script>
+      <script src='./quoteService.js' type='text/javascript'></script>
+      
+    <button ng-click="addQuote(addText, addAuthor)">Add your own quote</button>    
+    <input type="text" ng-model="addAuthor" placeholder="Add author here">
+    <input type="text" ng-model="addText" placeholder="Add quote text">
+    <input type="text" ng-model="searchTerm" placeholder="Search quotes">
+    <button ng-click="removeQuote(indexToRemove)" >Click to remove by Index</button>
+    <input type="text" ng-model="indexToRemove" placeholder="Index to remove">
+
+    <div class="quoteDiv" ng-repeat="quote in quotes | filter: searchTerm">
+        <p>{{quote.text}}</p>
+        <h1>{{quote.author}}</h1>
+    </div> 
+
+
+    
+    
+    </body>
+</html>
